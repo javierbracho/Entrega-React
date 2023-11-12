@@ -1,0 +1,37 @@
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+
+.bi-bag-x {
+    font-size: 35px;
+    color: white;
+
+}
+
+.bienvenida {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10rem;
+}
+button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-size: inherit;
+    cursor: pointer;
+  }
+  
+
+  button:hover {
+
+    text-decoration: underline;
+  }
+  
+  button:active {
+    outline: none;
+  }
+  
+  .logo-nav {
+      width: 180px;
+  }
