@@ -35,3 +35,105 @@ button {
   .logo-nav {
       width: 180px;
   }
+
+
+.productos {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  column-gap: 3rem;
+  row-gap: 2rem;
+  margin: 3rem 3rem 4rem;
+}
+
+.productos-card {
+  width: auto;
+  height: 85%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.productos-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+}
+
+.productos-card:hover {
+  transform: scale(1.1);
+}
+
+.card-body p {
+  margin: 0.8rem 0;
+}
+
+@media (max-width: 600px) {
+  .productos {
+    grid-template-columns: 1fr;
+    column-gap: 1.5rem; 
+    row-gap: 3rem; 
+    margin: 2rem 1rem 3rem; 
+  }
+
+  .productos-card {
+    height: auto; 
+  }
+}
+
+
+@media (min-width: 601px) and (max-width: 1181px) {
+  .productos {
+    grid-template-columns: repeat(auto-fill, minmax(calc(50% - 1.5rem), 1fr)); 
+    column-gap: 1.5rem;
+    row-gap: 3rem; 
+    margin: 2rem 1rem 3rem; 
+  }
+
+  .productos-card {
+    height: auto;
+  }
+}
+  
+.PromDiciembre {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:#2b3035;
+  color: white;
+  font-size: 0.85rem;  
+}  
+
+.Items{
+  display: flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10rem;
+  padding-top: 60px;
+  padding-left: 30px;
+  padding-right: 30px;
+
+}
+
+.Producto-detalle {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.Producto-detalle-img {
+  width: 600px;
+}
+
+.Animacion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10rem;
+}

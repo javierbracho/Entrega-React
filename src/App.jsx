@@ -1,14 +1,36 @@
-import { useState } from 'react'
 import { NavBar } from './components/NavBar/NavBar'
 import './App.css'
-import { ItemContainer } from './components/ItemContainer/ItemContainer'
+import ItemListContainer from './components/ItemContainer/ItemListContainer'
+import { BrowserRouter,Routes,Route } from 'react-router-dom'
+import Main from './components/ItemContainer/Main'
+import Item from './components/ItemContainer/Item'
+import PromDiciembre from './components/ItemContainer/promDiciembre'
+import ItemListFilter from './components/ItemContainer/ItemListFilter'
 
 function App() {
 
   return (
     <>
+    <BrowserRouter>
     <NavBar />
-    <ItemContainer saludo= "Bievenidos a nuestra Store muy pronto estaremos disponibles" />
+    <PromDiciembre />
+
+    <Routes>
+
+    <Route path='/' element={<   Main /> } /> 
+    <Route path='/Productos' element={<ItemListContainer /> } />
+    <Route path='/Productos/Category/:id' element={<ItemListFilter /> } />
+
+    <Route path='/Producto/:id' element={<Item />} /> 
+
+
+
+
+
+    </Routes>
+
+
+    </BrowserRouter>
     </>
   )
 }
