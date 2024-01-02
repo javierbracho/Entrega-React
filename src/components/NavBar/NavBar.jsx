@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Cart } from "./Cart/Cart";
+import { CartWidget } from "./Cart/CartWidget";
 import { Logo } from './logo';
 import NavDropdown from 'react-bootstrap/NavDropdown'
 
@@ -28,7 +28,9 @@ export const NavBar = () => {
                         <Nav.Link as={Link} to="/QuienesSomos">Quienes somos</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
-                <Cart />
+                <Nav.Link as={Link} to="/Carrito"> <CartWidget/></Nav.Link>
+
+
             </Container>
         </Navbar>
     );

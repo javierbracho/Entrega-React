@@ -1,16 +1,26 @@
 import React from 'react';
-import { pedirProductos } from '../pedirProductos/pedirProductos';
 import { useState, useEffect } from 'react';
 import ItemList from './ItemList';
+import { collection, getDocs } from "firebase/firestore"
+import { db } from "../../firebase/data"
 
 const ItemListContainer = () => {
     const [productos, setProductos] = useState([])
+     
 
     useEffect (() => {
-        pedirProductos()
-        .then((res)=> {
-            setProductos(res)
-        })
+        const productosRef = collection(db, "Productos");
+        getDocs(productosRef)
+            .then((resp)=>{
+
+                setProductos(
+                    resp.docs.map((doc)=> {
+                        return { ...doc.data(), id: doc.id}
+                    })
+                )
+            })
+
+
     },[])
 
   return (

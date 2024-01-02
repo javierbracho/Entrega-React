@@ -6,31 +6,30 @@ import Main from './components/ItemContainer/Main'
 import Item from './components/ItemContainer/Item'
 import PromDiciembre from './components/ItemContainer/promDiciembre'
 import ItemListFilter from './components/ItemContainer/ItemListFilter'
+import CartProvider from './Context/CartContext'
+import Carrito from './components/NavBar/Cart/Carrito'
+import ComprobanteCompra from './components/Checkout/comprobanteCompra'
 
 function App() {
 
+
+
   return (
     <>
-    <BrowserRouter>
-    <NavBar />
-    <PromDiciembre />
-
-    <Routes>
-
-    <Route path='/' element={<   Main /> } /> 
-    <Route path='/Productos' element={<ItemListContainer /> } />
-    <Route path='/Productos/Category/:id' element={<ItemListFilter /> } />
-
-    <Route path='/Producto/:id' element={<Item />} /> 
-
-
-
-
-
-    </Routes>
-
-
-    </BrowserRouter>
+    <CartProvider> 
+      <BrowserRouter>
+      <NavBar />
+      <PromDiciembre />
+      <Routes>
+        <Route path='/' element={< Main/> } /> 
+        <Route path='/Productos' element={<ItemListContainer /> } />
+        <Route path='/Productos/Category/:id' element={<ItemListFilter /> } />
+        <Route path='/Producto/:id' element={<Item />} /> 
+        <Route path='/Carrito' element={<Carrito /> } />
+        <Route path='/orden/:ordenId' element={<ComprobanteCompra />} />
++      </Routes>
+      </BrowserRouter>
+    </CartProvider>
     </>
   )
 }

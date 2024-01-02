@@ -15,7 +15,6 @@ const ItemListFilter = () => {
           try {
             const productoObtenido = await pedirProductoByCategory(id);
             setProductos(productoObtenido);
-            console.log(productoObtenido)
           } catch (error) {
             console.error("Error al obtener el producto", error);
           }

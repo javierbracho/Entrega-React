@@ -1,16 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import LoadingButton from '../Helpers/Button';
 import { Link } from 'react-router-dom';
+import { CartContext } from '../../Context/CartContext';
 
 
 const ItemList = ({productos}) => {
-    const formatearPrecio = (precio) => {
-        return precio.toLocaleString('es-CL', {
-          style: 'currency',
-          currency: 'CLP',
-        });
-      
-      }
+    
+const {formatearPrecio}=useContext(CartContext)
+        
   return (
         <div className='productos'>
             {
@@ -18,7 +15,7 @@ const ItemList = ({productos}) => {
                 productos.map ((producto) => {
                     return  (
                         <div key={producto.id} className={`productos-card`}>
-                            <img src={`/${producto.img}`} className="card-img-top" alt="notebook"/>
+                            <img src={`/${producto.img}`} className="card-img-top" alt={producto.modelo}/>
                             <div className="card-body">
                                 <h5 className="card-title">{producto.marca} {producto.modelo}</h5>
                                 <p>{formatearPrecio(producto.precio)}</p>

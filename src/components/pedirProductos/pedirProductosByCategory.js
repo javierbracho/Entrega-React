@@ -1,17 +1,30 @@
-import data from "../../data/productos.json";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../firebase/data";
 
 export const pedirProductoByCategory = (category) => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      const productosFiltrados = category === "Todos los Productos"
-        ? data
-        : data.filter((producto) => String(producto.category) === String(category));
+  const productosRef = collection(db, "Productos");
 
-      if (productosFiltrados.length > 0) {
+  return new Promise((resolve, reject) => {
+    getDocs(productosRef)
+      .then((resp) => {
+        const filtrado = resp.docs.map((doc) => {
+          return { ...doc.data(), id: doc.id };
+        });
+
+        let productosFiltrados;
+
+        if (category === "Todos los productos") {
+          productosFiltrados = filtrado;
+        } else {
+          productosFiltrados = filtrado.filter(
+            (producto) => String(producto.category) === String(category)
+          );
+        }
+
         resolve(productosFiltrados);
-      } else {
-        reject(new Error("No se encontraron productos para la categoría especificada"));
-      }
-    }, 500);
+      })
+      .catch((error) => {
+        reject(error);
+      });
   });
 };

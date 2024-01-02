@@ -1,14 +1,21 @@
-import data from "../../data/productos.json"
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../firebase/data";
 
 export const pedirProductoById = (id) => {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            const productoEncontrado = data.find((producto) => producto.id === parseInt(id));
-            if (productoEncontrado) {
-                resolve(productoEncontrado);
-            } else {
-                reject(new Error("Producto no encontrado"));
-            }
-        }, 500);
-    });
+  const docRef = doc(db, "Productos", id); 
+
+  return new Promise((resolve, reject) => {
+    getDoc(docRef)
+      .then((docSnapshot) => {
+        if (docSnapshot.exists()) {
+          resolve({ ...docSnapshot.data(), id: docSnapshot.id });
+        } else {
+          reject(new Error("El producto con el ID especificado no existe"));
+        }
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
 };
+

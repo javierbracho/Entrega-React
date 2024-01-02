@@ -1,12 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { pedirProductoById } from '../pedirProductos/pedirProductosById';
-import LoadingButton from '../Helpers/Button';
 import GrowExample from '../Helpers/spinner';
+import ItemCount from './ItemCount';
+import { CartContext } from '../../Context/CartContext';
 
 const Item = () => {
+  
+  const {formatearPrecio}=useContext(CartContext)
+
   const { id } = useParams();
   const [producto, setProducto] = useState(null);
+
 
   useEffect(() => {
     const obtenerProducto = async () => {
@@ -28,13 +33,7 @@ const Item = () => {
 
   }
 
-const formatearPrecio = (precio) => {
-  return precio.toLocaleString('es-CL', {
-    style: 'currency',
-    currency: 'CLP',
-  });
 
-}
 
   return (
     <div className='Items'>
@@ -45,8 +44,9 @@ const formatearPrecio = (precio) => {
       <div className='Producto-detalle'>
         <h2>{producto.marca} {producto.modelo}</h2>
         <p>{producto.descripcion}</p>
-        <p>{formatearPrecio(producto.precio)}</p>
-        <LoadingButton  info= {"Agregar al carrito"} />
+        <p> Stock disponible: {producto.stock} </p>
+        <p>Precio {formatearPrecio(producto.precio)}</p>
+        <ItemCount item= {producto}/>
       </div>
 
     </div>
