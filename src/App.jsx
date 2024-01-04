@@ -8,7 +8,7 @@ import PromDiciembre from './components/ItemContainer/promDiciembre'
 import ItemListFilter from './components/ItemContainer/ItemListFilter'
 import CartProvider from './Context/CartContext'
 import Carrito from './components/NavBar/Cart/Carrito'
-import ComprobanteCompra from './components/Checkout/comprobanteCompra'
+import ComprobanteCompra from './components/Checkout/ComprobanteCompra'
 import NoEncontrado from './components/ItemContainer/NoEncontrado'
 import QuienesSomos from './components/ItemContainer/QuienesSomos'
 

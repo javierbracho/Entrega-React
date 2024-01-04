@@ -367,6 +367,22 @@ button {
     padding: 2rem 0;
     text-align: center;
 }
+
+.ComprobanteCompra {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+}
+.ComprobanteCompra span {
+  font-weight:800;
+}
+
+.ComprobanteCompra h3{
+  margin-top: 1rem;
+}
+
 @media (min-width: 300px) and (max-width: 720px) {
   .Items {
     flex-direction: column;

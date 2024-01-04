@@ -18,9 +18,11 @@ const ComprobanteCompra = () => {
   }
 
   return (
-    <div>
-      <h2>Comprobante de Compra</h2>
-      {ordenId && <p>Tu número de orden es: {ordenId}</p>}
+    <div className='ComprobanteCompra'>
+      <h2>Hemos recibido tu pedido con exito</h2>
+      <h2>muchas gracias por tu compra!</h2>
+      <h3>Comprobante de pedido</h3>
+      {ordenId && <p>Tu número de orden es: <span>{ordenId} </span></p>}
     </div>
   );
 };
