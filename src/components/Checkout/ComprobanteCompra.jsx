@@ -14,7 +14,6 @@ const ComprobanteCompra = () => {
   }, [ordenId]);
 
   if (!ordenId) {
-    // Muestra un mensaje de carga o un esqueleto mientras esperas la información
     return <p>Cargando...</p>;
   }
 
@@ -22,7 +21,6 @@ const ComprobanteCompra = () => {
     <div>
       <h2>Comprobante de Compra</h2>
       {ordenId && <p>Tu número de orden es: {ordenId}</p>}
-      {/* ... Otros detalles de la compra */}
     </div>
   );
 };

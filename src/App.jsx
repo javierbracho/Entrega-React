@@ -1,5 +1,5 @@
 import { NavBar } from './components/NavBar/NavBar'
-import './App.css'
+import './style/App.css'
 import ItemListContainer from './components/ItemContainer/ItemListContainer'
 import { BrowserRouter,Routes,Route } from 'react-router-dom'
 import Main from './components/ItemContainer/Main'
@@ -9,6 +9,8 @@ import ItemListFilter from './components/ItemContainer/ItemListFilter'
 import CartProvider from './Context/CartContext'
 import Carrito from './components/NavBar/Cart/Carrito'
 import ComprobanteCompra from './components/Checkout/comprobanteCompra'
+import NoEncontrado from './components/ItemContainer/NoEncontrado'
+import QuienesSomos from './components/ItemContainer/QuienesSomos'
 
 function App() {
 
@@ -27,6 +29,9 @@ function App() {
         <Route path='/Producto/:id' element={<Item />} /> 
         <Route path='/Carrito' element={<Carrito /> } />
         <Route path='/orden/:ordenId' element={<ComprobanteCompra />} />
+        <Route path='/Quienessomos' element={<QuienesSomos />} />
+        <Route path={'*'} element={ <NoEncontrado /> } />
+
 +      </Routes>
       </BrowserRouter>
     </CartProvider>

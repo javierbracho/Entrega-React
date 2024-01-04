@@ -4,6 +4,7 @@ import { pedirProductoById } from '../pedirProductos/pedirProductosById';
 import GrowExample from '../Helpers/spinner';
 import ItemCount from './ItemCount';
 import { CartContext } from '../../Context/CartContext';
+import NoEncontrado from './NoEncontrado';
 
 const Item = () => {
   
@@ -11,6 +12,7 @@ const Item = () => {
 
   const { id } = useParams();
   const [producto, setProducto] = useState(null);
+  const [error, setError] = useState (false)
 
 
   useEffect(() => {
@@ -20,11 +22,16 @@ const Item = () => {
         setProducto(productoObtenido);
       } catch (error) {
         console.error("Error al obtener el producto", error);
+        setError(true)
       }
     };
 
     obtenerProducto();
   }, [id]);
+
+  if (error) {
+    return <NoEncontrado />
+  }
 
   if (!producto) {
     return  <div className='Animacion'>

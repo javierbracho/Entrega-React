@@ -19,9 +19,6 @@ const Carrito = () => {
         <div className='carrito-titulo'>
             <h1>CARRITO</h1>
         </div>
-
-
-
         <div className='carrito-checkout'>
             <div className='items-carrito'>
                 <div className='items-carrito-titulos'>

@@ -10,7 +10,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown'
 export const NavBar = () => {
     return (
         <Navbar expand="lg" className="bg-body-tertiary" bg="dark" data-bs-theme="dark">
-            <Container>
+            <Container fluid="xxl">
                 <Navbar.Brand as={Link} to="/"> <Logo /></Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
