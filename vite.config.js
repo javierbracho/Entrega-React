@@ -1,7 +1,22 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import react from '@vitejs/plugin-react';
+import path from 'path';
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-})
+  build: {
+    rollupOptions: {
+      external: ['react-bootstrap'],
+      output: {
+        // Esto puede ser necesario dependiendo de cómo esté estructurada tu aplicación
+        globals: {
+          'react-bootstrap': 'react-bootstrap',
+        },
+      },
+    },
+  },
+  resolve: {
+    alias: {
+      'react-bootstrap/Container': path.resolve(__dirname, 'node_modules/react-bootstrap/esm/Container.js'),
+    },
+  },
+});
