@@ -428,6 +428,13 @@ button {
     height: auto; 
   }
 }
+
+@media (max-width: 720px) {
+  .Items {
+    gap: 1rem
+  }
+}
+
 @media (min-width: 721px) and (max-width: 1080px) {
   .Items {
     gap:1rem;

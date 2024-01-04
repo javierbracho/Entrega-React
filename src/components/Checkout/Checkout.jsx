@@ -230,7 +230,7 @@ function FormularioDeCheckout() {
 
       <div className='totalCheckout'>
         <div className='totalesDeCompra'>
-            <p>Total :</p>  
+            <p>Subtotal :</p>  
             <p>{precioTotal()} </p>
         </div>  
         <div className='totalesDeCompra-IVA'>
