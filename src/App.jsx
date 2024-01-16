@@ -11,7 +11,7 @@ import Carrito from './components/NavBar/Cart/Carrito'
 import ComprobanteCompra from './components/Checkout/ComprobanteCompra'
 import NoEncontrado from './components/ItemContainer/NoEncontrado'
 import QuienesSomos from './components/ItemContainer/QuienesSomos'
-import Footer from './components/Footer/footer'
+import Footer from './components/Footer/Footer'
 
 function App() {
 
