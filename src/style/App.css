@@ -1,5 +1,17 @@
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+
+}
+
+
 .container-xxl{
   max-width: 1800px;
 }
@@ -73,6 +85,9 @@ button {
   max-width: 100%;
 }
 
+.triplefoto {
+  width: 100%;
+}
 
 
 
